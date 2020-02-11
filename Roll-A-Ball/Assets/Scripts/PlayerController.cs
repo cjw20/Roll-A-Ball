@@ -13,8 +13,8 @@ public class PlayerController : MonoBehaviour
     public Text winText;
 
 
-    private Rigidbody rb;
-    private int count;
+    private Rigidbody rb; //player's body
+    private int count;  //score
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -35,6 +35,12 @@ public class PlayerController : MonoBehaviour
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         rb.AddForce(movement * speed);
+
+        if (Input.GetButton("Jump") && rb.velocity.y == 0) // allows player to jump when jump key is pressed and makes sure that player is not already in the air
+        {
+            rb.AddForce(new Vector3(0.0f, 100.0f, 0.0f)); //applies a force of 10 in the y direction when player jumps
+        }
+
     }
     private void OnTriggerEnter(Collider other)
     {
