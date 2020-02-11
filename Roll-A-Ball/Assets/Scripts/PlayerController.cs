@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButton("Jump") && rb.velocity.y == 0) // allows player to jump when jump key is pressed and makes sure that player is not already in the air
         {
-            rb.AddForce(new Vector3(0.0f, 100.0f, 0.0f)); //applies a force of 10 in the y direction when player jumps
+            rb.AddForce(new Vector3(0.0f, 500.0f, 0.0f)); //applies a force of 10 in the y direction when player jumps
         }
 
     }
