@@ -44,12 +44,17 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Pickup"))
+        if (other.gameObject.CompareTag("Pickup"))    //causes pickup objects to become inactive when the player comes into contact with them.
         {
             other.gameObject.SetActive(false);
             count++;
             SetCountText();
         }
+      //if (other.gameObject.CompareTag("Bumper"))
+       // {
+      //      rb.AddForce(new Vector3(-1000 * rb.velocity.x, 1000 * rb.velocity.y)); //adds force equal to two times the current velocity in the opposite direction
+      //  }
+        
     }
     void SetCountText()
     {
