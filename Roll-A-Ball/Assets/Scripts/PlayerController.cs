@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Booster"))
         {
-            rb.velocity = rb.velocity * 2f;
+            rb.velocity = rb.velocity * 2.4f;
         }
     }
 
