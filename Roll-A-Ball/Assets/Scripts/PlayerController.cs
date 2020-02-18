@@ -17,9 +17,9 @@ public class PlayerController : MonoBehaviour
     private int count;  //score
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        count = 0;
-        SetCountText();
+        rb = GetComponent<Rigidbody>();  //refers to player's body
+        count = 0; //initial score
+        SetCountText();  //initializes score counter 
         winText.text = "";
     }
 
@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveHorizontal = Input.GetAxis("Horizontal"); //gets keyboard input for player movement
         float moveVertical = Input.GetAxis("Vertical");
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
@@ -47,22 +47,22 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Pickup"))    //causes pickup objects to become inactive when the player comes into contact with them.
         {
             other.gameObject.SetActive(false);
-            count++;
-            SetCountText();
+            count++;  //Adds 1 to count score
+            SetCountText(); //updates score message
         }
         if (other.gameObject.CompareTag("Booster"))
         {
-            rb.velocity = rb.velocity * 2.35f;
+            rb.velocity = rb.velocity * 2.35f; //multiplies velocity by 2.35
         }
     }
 
 
     void SetCountText()
     {
-        countText.text = "Count: " + count.ToString();
+        countText.text = "Count: " + count.ToString();  //Displays current score
         if (count >= 10)
         {
-            winText.text = "You Win!";
+            winText.text = "You Win!"; //shows win message when all 10 pickups are collected
         }
     }
 }
