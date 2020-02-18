@@ -50,22 +50,13 @@ public class PlayerController : MonoBehaviour
             count++;
             SetCountText();
         }
-      //if (other.gameObject.CompareTag("Bumper"))
-       // {
-      //      rb.AddForce(new Vector3(-1000 * rb.velocity.x, 1000 * rb.velocity.y)); //adds force equal to two times the current velocity in the opposite direction
-      //  }
-        
-    }
-
-    private void OnCollisonEnter(Collision collision)
-    {
-        if (collision.other.gameObject.CompareTag("Bumper"))
+        if (other.gameObject.CompareTag("Booster"))
         {
-            Vector3 impactVelocity = new Vector3(collision.relativeVelocity.x, collision.relativeVelocity.y, collision.relativeVelocity.z);
-            rb.velocity += -impactVelocity * 2f;
-            print("yeah");
+            rb.velocity = rb.velocity * 2f;
         }
     }
+
+
     void SetCountText()
     {
         countText.text = "Count: " + count.ToString();

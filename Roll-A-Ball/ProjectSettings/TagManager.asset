@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Pickup
   - Bumper
+  - Booster
   layers:
   - Default
   - TransparentFX
