@@ -56,6 +56,16 @@ public class PlayerController : MonoBehaviour
       //  }
         
     }
+
+    private void OnCollisonEnter(Collision collision)
+    {
+        if (collision.other.gameObject.CompareTag("Bumper"))
+        {
+            Vector3 impactVelocity = new Vector3(collision.relativeVelocity.x, collision.relativeVelocity.y, collision.relativeVelocity.z);
+            rb.velocity += -impactVelocity * 2f;
+            print("yeah");
+        }
+    }
     void SetCountText()
     {
         countText.text = "Count: " + count.ToString();
